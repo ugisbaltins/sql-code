@@ -11,7 +11,8 @@ export const selectCategoryByTitle = (title: string): string => {
 };
 
 export const selectAppCategoriesByAppId = (appId: number): string => {
-  return `SELECT apps.title AS app_title, category_id, categories.title AS category_title FROM apps_categories
+  return `SELECT apps.title AS app_title, category_id, categories.title AS category_title
+  FROM apps_categories
   JOIN categories ON apps_categories.category_id = categories.id
   JOIN apps ON apps_categories.app_id = apps.id
   WHERE app_id = ${appId};`;
